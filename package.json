@@ -1,7 +1,7 @@
 {
-  "name": "example6",
+  "name": "webvr_boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "A toolkit for creating webvr experiences",
   "main": "webpack.config.js",
   "scripts": {
     "build": "webpack --config webpack.config.prod.js",
@@ -9,7 +9,7 @@
     "deploy": "webpack --config webpack.config.prod.js && firebase deploy"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ian Petrarca",
   "license": "MIT",
   "devDependencies": {
     "css-loader": "^0.28.5",

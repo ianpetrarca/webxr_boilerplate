@@ -1,4 +1,7 @@
+//Get Afrane Scene
 var sceneEl = document.querySelector('a-scene');
+
+//Create a Box with dimensions,physics and shadows
 AFRAME.registerComponent('box', {
   init: function () {
       this.el.setAttribute('geometry', {
@@ -12,6 +15,7 @@ AFRAME.registerComponent('box', {
   }
 });
 
+//Loop that makes 20 Boxes
 for (var i = 0; i < 20; i++) {
   var entityEl = document.createElement('a-entity');
   entityEl.setAttribute('box', '');
