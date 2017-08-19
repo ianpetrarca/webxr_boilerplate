@@ -46,7 +46,7 @@ To view realtime updates of the Webpack compiling process go to http://localhost
   
  **WebVR-Boilerplate was designed for Single-Page-Applications** and does not handle multiple html files without reconfiguring the _webpack.config.prod.js_ and _webpack.config.dev.js_ files.
  
- ## Building and Deploying 
+ ## Building 
  
  To build and optimze your HTML/JS/CSS run:
      
@@ -54,6 +54,19 @@ To view realtime updates of the Webpack compiling process go to http://localhost
  
  This will build your ./source folder into the ./dist directory with the specifications made in the _webpack.config.prod.js_ file.
 
+## Deploying
+
+WebVR-Boilerplate uses Firebase for quick and easy static-asset hosting. If you haven't already install Firebase by running:
+
+    npm install -g firebase-tools
+    
+After installing Firebase, run _init_ and setup a hosting connection:
+
+    firebase init 
+    
+THe _firebase.json_ file tells Firebase Hosting to use the _./dist_ directory. Find out more about Firebase Hosting [Here](https://firebase.google.com/docs/hosting/quickstart) 
+
+ 
  
  
  
