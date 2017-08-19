@@ -68,7 +68,11 @@ After installing Firebase, run _init_ and setup a hosting connection:
 
     firebase init 
     
-The _firebase.json_ file tells Firebase Hosting to use the _./dist_ directory. Find out more about Firebase Hosting [Here](https://firebase.google.com/docs/hosting/quickstart) 
+The _firebase.json_ file tells Firebase Hosting to use the _./dist_ directory. Find out more about Firebase Hosting [Here](https://firebase.google.com/docs/hosting/quickstart)
+
+Once Firebase is installed and initialized, run the following code to build and deploy your code:
+
+    npm run deploy
 
  
  
