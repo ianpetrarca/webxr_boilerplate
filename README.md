@@ -12,6 +12,15 @@ WebVR Boilerplate is a starting point for WebVR creators to develop, build and d
     cd webvr_boilerplate
     npm install
 
+### File Structure + Descriptions
+    ├── dist                   # Webpack Production build output 
+    ├── src                    # Source material (unminifed)
+    ├── .firebaserc            # Connects your project to Firebase Hosting 
+    ├── firebase.json          # specifies which directory to upload to Firebase
+    ├── package.json           # NPM 
+    ├── webpack.config.dev.js  # Creates Hot-Reload Server (no optimization)
+    └── webpack.config.prod.js # Optimizes and builds code to the ./dist folder
+
 ## Hot-Reload Development Server 
 
 WebVR-Boilerplate uses Webpack-dev-server to host a hot-reloading http server of the _./dist_ directory. This is specified in _webpack.config.dev.js_:
@@ -27,4 +36,6 @@ To spin up a development site run the following code then point a WebVR friendly
 
 To view realtime updates of the Webpack compiling process go to http://localhost:8080/webpack-dev-server/.
   
- **WebVR-Boilerplate was designed for Single-Page-Applications** and does not handle multiple html files without reconfiguring the _webpack.config.js_ files.
+ **WebVR-Boilerplate was designed for Single-Page-Applications** and does not handle multiple html files without reconfiguring the _webpack.config.js_ and _webpack.config.dev.js_ files.
+ 
+ 
