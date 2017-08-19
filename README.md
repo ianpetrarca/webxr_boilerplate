@@ -53,9 +53,7 @@ To view realtime updates of the Webpack compiling process go to http://localhost
      npm run build
  
  This will build your ./source folder into the ./dist directory with the specifications made in the _webpack.config.prod.js_ file.
+
  
- ## Bundled Features:
- 
- WebVR-Boilerplate comes bundles with [Don Mccurdy's](https://github.com/donmccurdy/) [Aframe Extras](https://github.com/donmccurdy/aframe-extras) 
  
  
