@@ -16,10 +16,18 @@ WebVR Boilerplate is a starting point for WebVR creators to develop, build and d
     ├── dist                   # Webpack Production build output 
     ├── src                    # Source material (unminifed)
     ├── .firebaserc            # Connects your project to Firebase Hosting 
-    ├── firebase.json          # specifies which directory to upload to Firebase
+    ├── firebase.json          # Specifies which directory to upload to Firebase
     ├── package.json           # NPM 
-    ├── webpack.config.dev.js  # Creates Hot-Reload Server (no optimization)
+    ├── webpack.config.dev.js  # Creates hot-reload server (no optimization)
     └── webpack.config.prod.js # Optimizes and builds code to the ./dist folder
+    
+    ├── ...
+    ├── src                     # Source Files
+    │   ├── box.js              # Module for box component
+    │   ├── index.html          # Front-End HTML + Aframe code
+    |   ├── index.js            # Webpack entry point
+    │   └── styles.css          # CSS
+    └── ...
 
 ## Hot-Reload Development Server 
 
@@ -36,6 +44,18 @@ To spin up a development site run the following code then point a WebVR friendly
 
 To view realtime updates of the Webpack compiling process go to http://localhost:8080/webpack-dev-server/.
   
- **WebVR-Boilerplate was designed for Single-Page-Applications** and does not handle multiple html files without reconfiguring the _webpack.config.js_ and _webpack.config.dev.js_ files.
+ **WebVR-Boilerplate was designed for Single-Page-Applications** and does not handle multiple html files without reconfiguring the _webpack.config.prod.js_ and _webpack.config.dev.js_ files.
+ 
+ ## Building and Deploying 
+ 
+ To build and optimze your HTML/JS/CSS run:
+     
+     npm run build
+ 
+ This will build your ./source folder into the ./dist directory with the specifications made in the _webpack.config.prod.js_ file.
+ 
+ ## Bundled Features:
+ 
+ WebVR-Boilerplate comes bundles with [Don Mccurdy's](https://github.com/donmccurdy/) [Aframe Extras](https://github.com/donmccurdy/aframe-extras) 
  
  
