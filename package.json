@@ -1,0 +1,22 @@
+{
+  "name": "example6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.prod.js",
+    "dev": "webpack-dev-server --config webpack.config.dev.js --open",
+    "deploy": "webpack --config webpack.config.prod.js && firebase deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^0.28.5",
+    "html-webpack-plugin": "^2.8.1",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.18.2",
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.1"
+  }
+}

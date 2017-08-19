@@ -1,0 +1,42 @@
+<html>
+ <head>
+    <title>A-Frame WebVR Boilerplate</title>
+    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.9.0/dist/aframe-extras.min.js"></script>
+ </head>
+  <body>
+     <a-scene physics="gravity:-9.6">
+       <a-assets timeout>
+          <audio id="break" src="./audio/break.mp3"></audio>
+            <img id="pic" src="logo.jpg">
+          <script id="avatar-template" type="text/html">
+            <a-sphere></a-sphere>
+          </script>
+        </a-assets>
+
+        <a-box color="blue" material="shader:flat" shadow="cast:true; recieve:true;" static-body sound="src:#break; autoplay: true; loop:true" src="#boxTexture" position="0 3 0" rotation="0 45 45" scale="2 2 2">
+          <a-animation attribute="position" to="0 6 -15" direction="alternate" dur="10000"
+            repeat="indefinite"></a-animation>
+
+           <a-animation attribute="scale" to="3 3 3" direction="alternate" dur="2500"
+            repeat="indefinite"></a-animation>
+
+
+            <a-animation attribute="rotation" to="360 360 360" direction="alternate" dur="3000"
+            repeat="indefinite"></a-animation>
+        </a-box>
+
+        <a-text color="black" width="15" position="-4 7 -2" value="Aframe WebVR Boilerplate"></a-text>
+        <a-sky material="color:#42ebf4"> </a-sky>
+
+        <a-entity light="type: ambient; color: #BBB"></a-entity>
+
+
+        <a-entity light="type: directional;castShadow: true;intensity: 1 ; color:#FFF;" position="0 30 -1"></a-entity>
+        <a-camera position="0 1 5"> </a-camera>
+
+        <a-box shadow="receive: true" static-body rotation="0 0 0" color="tomato" scale="10 1 10" position="0 0 0"> </a-plane>
+    </a-scene>
+
+  </body>
+</html>
