@@ -1,4 +1,5 @@
-# webvr_boilerplate
+### WebVR Boilerplate
+
 A boilerplate for creating static WebVR experiences with Aframe, Webpack and Firebase
 
 
