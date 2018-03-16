@@ -1,34 +1,84 @@
 <html>
- <head>
-    <title>A-Frame WebVR Boilerplate</title>
-     <script src="https://rawgit.com/aframevr/aframe/b4f221c/dist/aframe-master.min.js"></script>
-    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.9.0/dist/aframe-extras.min.js"></script>
- </head>
+  <head>
+    <title>A-Frame Super Hands Component - Pointer Controls</title>
+    <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+    <script src="https://rawgit.com/ngokevin/aframe-event-set-component/master/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script>
+    <script src="https://unpkg.com/aframe-teleport-controls@0.2.x/dist/aframe-teleport-controls.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js"></script>
+    <script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/v0.1.14/dist/aframe-orbit-controls-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-audioanalyser-component@^3.0.3/dist/aframe-audioanalyser-component.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
+
+  </head>
+  </head>
   <body>
-  <!-- Aframe Scene-->
-     <a-scene physics="gravity:-9.6">
-       <a-assets>
-          <audio id="break" src="./audio/break.mp3"></audio>
-        </a-assets>
+    <a-scene physics
+    
+    <a-entity static-body id="enviro" position="0 0 0" environment="
+    preset:default;
+    playArea:1;
+    groundYScale: 50;
+    fog: .7;
+    dressingAmount: 0;
+    groundColor2: #ffffff;
+    groundColor: #ffffff;
+    groundTexture: walkernoise;
+    grid:none;
+    lightPosition: 0 10 1;
+    active: true;
+    shadow: true;">
+ </a-entity>
+ 
+ 
 
-        <!-- Main Box-->
-        <a-box color="blue" material="shader:flat" shadow="cast:true; recieve:true;"
-          static-body sound="src:#break; autoplay: true; loop:true"
-          src="#boxTexture" position="0 3 0" rotation="0 45 45" scale="2 2 2">
-          <a-animation attribute="position" to="0 6 -15" direction="alternate" dur="10000" repeat="indefinite"></a-animation>
-          <a-animation attribute="scale" to="3 3 3" direction="alternate" dur="2500" repeat="indefinite"></a-animation>
-          <a-animation attribute="rotation" to="360 360 360" direction="alternate" dur="3000" repeat="indefinite"></a-animation>
-        </a-box>
+      <a-assets>
+    
+        <a-mixin id="cube" geometry="primitive: box; width: 0.5; height: 0.5; depth: 0.5"
+                 hoverable grabbable stretchable draggable droppable
+                 shadow
+                 event-set="_event: drag-drop; geometry.primitive: sphere; geometry.radius: 0.25"></a-mixin>
+        <a-mixin id="cube-hovered" material="opacity: 0.7; transparent: true">
+        </a-mixin>
+        <a-mixin id="cube-dragover" material="wireframe: true;"></a-mixin>
+      </a-assets>
 
-        <a-text color="black" width="15" position="-4 7 -2" value="Aframe WebVR Boilerplate"></a-text>
-        <a-sky material="color:#42ebf4"> </a-sky>
-        <a-entity light="type: ambient; color: #BBB"></a-entity>
-        <a-entity light="type: directional;castShadow: true;intensity: 1 ; color:#FFF;" position="0 30 -1"></a-entity>
+      <a-camera mouse-cursor wasd-controls look-controls></a-camera>
 
-        <a-camera rotation="-10 0 0" position="0 3 5"> </a-camera>
+      <a-entity progressive-controls="objects: .cube, a-link; maxLevel: point">
+          <a-entity static-body id="rhand"  teleport-controls class="right-controller"></a-entity>
+          <a-entity static-body id="lhand"  class="left-controller"></a-entity>
+      </a-entity>
+      <a-entity sound="src:./audio/break.mp3;volume:2; on: click" class="cube" mixin="cube" position="0 1.6 -1.25" material="color: red">
+        <a-animation attribute="rotation"                    
+        dur="7000"
+        begin="click"
+        fill="forwards"
+        repeat="0"
+        direction="alternate"
+        to="360 360 0"
 
-        <a-box shadow="receive: true" static-body rotation="0 0 0" color="tomato" scale="10 1 10" position="0 0 0"> </a-plane>
+        direction="alternate"></a-animation>
+
+      </a-entity>
+<!-- 
+        <a-animation attribute="rotation"
+        dur="1000"
+        fill="forwards"
+        to="0 360 0"
+        repeat="indefinite"></a-animation> -->
+
+
+      </a-entity>
+      <!-- <a-entity class="cube" mixin="cube" position="0 1.6 -1.5" material="color: red"></a-entity>
+      <a-entity class="cube" mixin="cube" position="-0.9 1 -0.9" material="color: blue"></a-entity>
+      <a-entity class="cube" mixin="cube" position="-1 1.6 -1" material="color: blue"></a-entity>
+      <a-entity class="cube" mixin="cube" position="0.9 1 -0.9" material="color: green"></a-entity>
+      <a-entity class="cube" mixin="cube" position="1 1.6 -1" material="color: green"></a-entity> -->
+      <a-box static-body width=1000 height=0.001 depth=1000 visible="false"></a-box> <a-box static-body width=100 height=0.001 depth=100 visible="false"></a-box>
+   
     </a-scene>
-
-  <script type="text/javascript" src="bundle.js"></script></body>
+<script type="text/javascript" src="bundle.js"></script></body>
 </html>

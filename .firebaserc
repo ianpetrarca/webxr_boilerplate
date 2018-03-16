@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "webvrboilerplate"
+    "default": "webvrboilerplate",
+    "staging": "virtest-f796e"
   }
 }
