@@ -1,7 +1,6 @@
-if (process.env.NODE_ENV !== 'production') {
-  require('./index.html');
-  require('./styles.css');
-}
+require('aframe');
+require('aframe-extras');
+require('aframe-physics-system');
 
-//Load Site Assets
-require('./load.js')
+require('./components/audio.js');
+

@@ -1,116 +1,27 @@
+<!DOCTYPE html>
 <html>
-  <head>
-      <meta http-equiv="cache-control" content="max-age=0" />
-      <meta http-equiv="cache-control" content="no-cache" />
-      <meta http-equiv="expires" content="0" />
-      <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-      <meta http-equiv="pragma" content="no-cache" />
-      
-    <title>A-Frame Boilerplate</title>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>A-Frame Boilerplate</title>
+
+</head>
+<body>
     <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
-    <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script>
-    <script src="https://unpkg.com/aframe-teleport-controls@0.2.x/dist/aframe-teleport-controls.min.js"></script>
-    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Lilita+One" rel="stylesheet">
-    <style>
-      html {
-    font-family: 'Lilita One', cursive;
-    
- }  
-    </style>
+  <a-scene physics="gravity:0">
 
-  </head>
-  <body>
-    <div id="modal1" class="modal z-depth-0 transparent" style="overflow-y: hidden;overflow-x: hidden;max-height: 100%;">
-          <div class="modal-content center" style="padding:0px;">
-             <div  class="hide-on-small-only">
-                  <h1 id="wel_icon" width="100%" style="font-size:490%;color:#efefef"> WebVR Boilerplate </h1>
-                  <h5 id="wel_icon_text"  class="white-text" width="100%"> Created by <a href="https://ianpetrarca.com">Ian Petrarca</a> </h5>
-             </div>
-              <div class="hide-on-med-and-up">
-                <h3 id="wel_icon_small" class="white-text" style="font-size:375%">WebVR Boilerplate</h3>
-                <h5 id="wel_icon_text_small"  class="white-text" width="100%" style="font-size:170%; ">Created by <a href="https://www.ianpetrarca.co
-m">Ian Petrarca</a> </h5>
-             </div>
-
-            <div id="start_button_wrapper">
-             <a id="start_button" style="width:200px; margin-top: 25px; margin-bottom: 25px;" class="center transparent white-text waves-effect waves-light btn red">Loading...</a>
-            </div>
-      
-          </div>
-      
-      
-      
-      
-        </div>
+      ${require('./objects/environment.html')}
+      <!-- Player -->
+      <a-entity listener wasd-controls camera look-controls>
 
 
-   
-        <a-scene physics="gravity:-9.6">
-      
-    <a-entity id="enviro" position="0 0 0" environment="
-    preset:default;
-    playArea:1;
-    groundYScale: 50;
-    fog: 0;
-    dressingAmount: 0;
-    groundColor2: #ffffff;
-    groundColor: #ffffff;
-    groundTexture: walkernoise;
-    grid:none;
-    lightPosition: 0 10 5;
-    light.intensity:
-    active: true;
-    shadow: true;">
- </a-entity>
-      <a-assets>
-          <audio id="wel" src="./audio/wel.mp3" type="audio/mp3" ></audio>
-          <audio id="chord1" src="./audio/chordone.mp3" type="audio/mp3" ></audio>
-        <a-mixin id="cube" geometry="primitive: box; width: 0.5; height: 0.5; depth: 0.5"
-                 hoverable grabbable stretchable draggable droppable dynamic-body
-                 shadow
-                 event-set="_event: drag-drop; geometry.primitive: sphere; geometry.radius: 0.25"></a-mixin>
-        <a-mixin id="cube-hovered" material="opacity: 0.7; transparent: true">
-        </a-mixin>
-        <a-mixin id="cube-dragover" material="wireframe: true;"></a-mixin>
-      </a-assets>
-
-      <a-camera wasd-controls look-controls> </a-camera>
-
-      <a-entity progressive-controls="objects: .cube, a-link; maxLevel: point">
-          <a-entity static-body id="rhand"  teleport-controls class="right-controller"></a-entity>
-          <a-entity static-body id="lhand"  class="left-controller"></a-entity>
       </a-entity>
-      
-      <a-entity id="chord1_obj" sound="src:#chord1;volume:2; on: click" class="cube" mixin="cube" position="0 2.6 -1.25" material="color:#f44336  ">
-      </a-entity>
-
-      <a-box material="color:#ba68c8 " static-body width="1000" height="0.001" depth="1000" visible="false"></a-box>
+      <a-entity static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: left" sphere-collider="objects: .cube;" grab></a-entity>
+      <a-entity static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: right" sphere-collider="objects: .cube;" grab></a-entity>
+      <a-box sound-object class="cube" dynamic-body position="0 1 -1" width="0.5" height="0.5" depth="0.5" color="red"></a-box>
+      <a-box material="color:#1976d2 " static-body width="1000" height="0.001" depth="1000" visible="false"></a-box>
+                
     </a-scene>
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
-
-      <script type="text/javascript">
-          $(document).ready(function(){
-              $('.modal').modal({
-            dismissible: false, // Modal can be dismissed by clicking outside of the modal
-            opacity: .1, // Opacity of modal background
-            inDuration: 0, // Transition in duration
-            outDuration: 1000, // Transition out duration
-            startingTop: '20%', // Starting top style attribute
-            endingTop: '10%', // Ending top style attribute
-            // Callback for Modal close
-          }
-        );
-            $('#modal1').modal('open');
-        });
-
-        
-      </script>
-
-
-</body>
+ </body>
 </html>
