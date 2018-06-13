@@ -27,6 +27,7 @@ module.exports = {
       warnings: false
     }
   },
+  performance: { hints: false },
   module: {
     rules: [
       {

@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <title>WebVR Boilerplate</title>
+  <script type="text/javascript" src="app.js"></script></head>
+  <body>
+    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+
+    <a-scene id="scene" stats vr-mode-ui="enabled: true" physics="gravity:-9.6">
+      <a-assets>
+          <a-mixin id="mycursor" position="0 0 -0.5" raycaster geometry="primitive: ring; radiusOuter: 0.008; radiusInner: 0.005; segmentsTheta: 32" material="color: white; shader: flat" static-body="shape: sphere; sphereRadius: 0.001" super-hands="colliderEvent: raycaster-intersection;colliderEventProperty: els;colliderEndEvent:raycaster-intersection-cleared; colliderEndEventProperty: clearedEls;colliderState:"></a-mixin>
+          <a-mixin id="mytouch" physics-collider phase-shift collision-filter="collisionForces: false" static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions; colliderEventProperty: els; colliderEndEvent: collisions; colliderEndEventProperty: clearedEls;colliderState:"></a-mixin>
+          <a-mixin id="resize-obj" hoverable grabbable stretchable draggable dynamic-body="linearDamping:.98. angularDamping:.5" shadow="receive:true;castShadow:true"></a-mixin>
+          <a-mixin id="bat-obj" hoverable grabbable draggable dynamic-body shadow="receive:true;castShadow:true"></a-mixin>
+          <a-mixin id="constraint-obj" hoverable grabbable draggable dynamic-body shadow="receive:true;castShadow:true"></a-mixin>
+          <a-mixin id="damping-obj" hoverable grabbable draggable dynamic-body="linearDamping:.99. angularDamping:.5" shadow="receive:true;castShadow:true"></a-mixin>
+          <a-mixin id="hover-obj" geometry="primitive: box; width: 0.33; height: 0.33; depth: 0.33" hoverable grabbable draggable
+           event-set__hoveron="_event: hover-start; material.opacity: 0.5; transparent: true"
+           event-set__hoveroff="_event: hover-end; material.opacity: 1; transparent: false"
+           dynamic-body shadow>
+          </a-mixin>
+
+      </a-assets>
+
+      <!-- SCENE -->
+      <a-entity position="9.75 4 -11" scale="30 30 30" text="value: WebVR Boilerplate;"></a-entity>
+      <a-entity position="0 4 0" rotation="-90 0 0" id="night_light" visible="false" light="type:spot;intensity:0.3;penumbra:0.18"></a-entity>
+      <a-entity id="enviro" position="0 -.001 0" environment="
+preset:default;
+playArea:1;
+groundYScale: 40;
+fog: .75;
+dressingAmount: 0;
+groundColor2: #2e7d32;
+groundColor: #1b5e20;
+groundTexture: walkernoise;
+grid:none;
+lightPosition: 0 .8 1;
+active: true;
+shadow: true;">
+</a-entity>
+      <!-- ground collider keeps objets from falling -->
+      <a-box static-body width=100 height=0.001 depth=100 visible="false"></a-box>
+
+     <!-- CAMERA RIG FOR TELEPORT-CONTROLS AND SUPER-HANDS -->
+      <a-entity id="cameraRig">
+          <a-entity id="head" progressive-controls="gazeMixin: mycursor; touchMixin: mytouch; override: true; objects: .obj, .button; maxLevel: point;" >
+                  <a-entity teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;" shadow="cast:true" haptics="events: triggerdown; dur: 50; force: 0.5" class="left-controller"></a-entity>
+                  <a-entity teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;" shadow="cast:true" haptics="events: triggerdown; dur: 50; force: 0.5" class="right-controller"></a-entity>
+              </a-entity>
+        </a-entity>
+
+      <!-- CENTER CONSOLE -->
+      <a-entity change-mountains material="color:white" rotation="0 90 60" position=".6 1.55 -3.15" class="button" ui-toggle></a-entity>
+      <a-entity rotation="-30 0 0"  position="1.3 1.55 -3.15" scale="4 4 4" text="value: Mountains;"></a-entity>
+      <a-entity change-sky material="color:white" rotation="0 -90 -60" position=".6 1.3 -3" class="button" ui-toggle></a-entity>
+      <a-entity rotation="-30 0 0"  position="1.3 1.3 -3" scale="4 4 4" text="value: Day/Night;"></a-entity>
+      <a-entity change-fog material="color:white" rotation="0 90 60" position=".6 1.05 -2.85" class="button" ui-toggle></a-entity>
+      <a-entity rotation="-30 0 0"  position="1.3 1.05 -2.85" scale="4 4 4" text="value: Fog;"></a-entity>
+      <a-box material="color:#424242" shadow="cast:true;receive:false" rotation="-30 0 0" position="0 1.25 -3" scale="1.75 1 .01" ></a-box>
+      
+      <!-- RESIZEABLE OBJECTS -->
+      <a-entity rotation="0 40 0" position="-2.25 1.5 -1.25" scale="2.5 3 2.5" text="value: Resizeable Objects;"></a-entity>
+      <a-box class="obj" mixin="resize-obj"  position="-3 2 -1.25" rotation="0 25 0" width=".75" height=".75" depth=".75" visible="true"></a-box>   
+      <a-cylinder class="obj" mixin="resize-obj"  position="-3.65 2 -.75" rotation="0 25 0" radius=".25" height="1" visible="true"></a-cylinder>
+
+      <!-- Hoverable OBJECTS -->
+      <a-entity rotation="0 90 0" position="-4.0 1.5 1.72" scale="2.5 3 2.5" text="value:Hoverable Objects"></a-entity>
+      <a-box color="blue" class="obj" mixin="hover-obj"  position="-4.0 1.5 1.72" rotation="0 25 0" width=".75" height=".75" depth=".75" visible="true"></a-box>
+      <a-box color="red" class="obj" mixin="hover-obj"  position="-4.0 2.5 2" rotation="0 25 0" width=".25" height=".25" depth=".25" visible="true"></a-box>   
+
+      <!-- Damping OBJECTS -->
+      <a-entity rotation="0 -90 0" position="4.5 1.5 1.72" scale="2.5 3 2.5" text="value:Objects with Physics Damping"></a-entity>
+      <a-sphere segments-width="8" segments-height="8" wireframe="true" color="blue" class="obj" mixin="damping-obj" position="4.5 1.5 1.72" rotation="0 25 0" radius=".25" visible="true"></a-sphere>
+      <a-sphere segments-width="8" segments-height="8"wireframe="true" color="red" class="obj" mixin="damping-obj" position="4.5 2.5 2" rotation="0 25 0" radius=".5" visible="true"></a-sphere>   
+      
+      <!-- CONSTRAINT OBJECTS -->
+      <a-entity  class="obj" rotation="0 -40 0" position="4.25 1.5 -1.25" scale="2.5 3 2.5" text="value: Physics Constraints;"></a-entity>
+      <a-sphere material="color:blue" class="obj" mixin="constraint-obj" position="3.65 1.25 -.75" radius=".25" constraint="target: #target-cons;distance:.5"></a-sphere>
+      <a-cylinder material="color:red" id="target-cons" class="obj" static-body="shape:cylinder;height: 2; radiusTop: 0.05; radiusBottom: 0.05;" position="3.65 0 -.75" rotation="0 25 0" radius=".05" height="2" visible="true"></a-cylinder>
+      <a-cylinder material="color:white" mixin="bat-obj" class="obj" position="3.65 0 0" rotation="0 25 0" radius=".05" height="1" visible="true"></a-cylinder>
+     
+      <a-entity>
+        <a-entity id="sun" geometry="primitive: sphere; radius: 1" material="color: #0be2f7; shader:flat" position="0 10 -25" sound="src:./plume.mp3;autoplay:true; loop:true;">
+          <a-entity scale="10 10 10" text="value: Spatial Audio;"></a-entity>
+        </a-entity>
+        <a-animation direction="alternate"attribute="rotation" to="0 360 0" dur="20000" repeat="indefinite"></a-animation>
+      </a-entity>
+     
+
+    </a-scene>
+
+   </body>
+</html>

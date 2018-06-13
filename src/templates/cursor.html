@@ -1,0 +1,9 @@
+<a-mixin id="mycursor" position="0 0 -0.5" raycaster
+geometry="primitive: ring; radiusOuter: 0.008; radiusInner: 0.005; segmentsTheta: 32"
+material="color: grey; shader: flat"
+static-body="shape: sphere; sphereRadius: 0.001"
+super-hands="colliderEvent: raycaster-intersection;
+             colliderEventProperty: els;
+             colliderEndEvent:raycaster-intersection-cleared;
+             colliderEndEventProperty: clearedEls;
+             colliderState:"></a-mixin>
