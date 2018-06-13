@@ -4,8 +4,7 @@ WebVR Boilerplate is a toolkit for WebVR creators to develop, build and deploy s
 
 ___
 
-<img align="center" width="100%" height="100%" src="https://user-images.githubusercontent.com/1003196/41374523-5d92c64c-6f21-11e8-8d3b-42ab01c8370d.PNG">
-
+<a href="https://imgflip.com/gif/2c669y"><img src="https://i.imgflip.com/2c669y.gif" title="made at imgflip.com"/></a>
 #### _WebVR_Boilerplate Scene (Physics, Shadows and Audio support out of the box!)_
 
 ___
