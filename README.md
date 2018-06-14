@@ -35,7 +35,7 @@ To spin up a localhost site, run the following command then point a WebVR friend
 
     npm run dev
 
-To view the dev server on an external device find out your local IP address (Type 'ipconfig' in any terminal) and view the 8080 port. This may look like:
+To view the dev server on an external device, find out your local IP address (Type 'ipconfig' in any terminal) and view the 8080 port. This may look like:
 
     192.168.1.165:8080
 
