@@ -67,15 +67,17 @@ Once Firebase is installed and initialized, run the following code to build and 
     
 ## Credits
 
-Aframe has an amazing community of developers, here are the people/projects that are being used in WebVR Boilerplate. 
+Aframe has an amazing community of developers, here are the people/projects that are being used in WebVR Boilerplate:
 
 - [Aframe](https://github.com/aframevr/aframe)
+- [Aframe Environment] (https://github.com/feiss/aframe-environment-component) by [Diego Goberna](http://feiss.be/) 
 - [Aframe Extras](https://github.com/donmccurdy/aframe-extras) by [Don McCurdy](https://www.donmccurdy.com/)
 - [Aframe Physics](https://github.com/donmccurdy/aframe-physics-system) by [Don McCurdy](https://www.donmccurdy.com/)
 - [Kframe](https://github.com/ngokevin/kframe/) by [Kevin Ngo](http://ngokevin.com/)
 - [Aframe Teleport Component](https://github.com/fernandojsg/aframe-teleport-controls) by [Fernando Serrano](http://fernandojsg.com/blog/)
 - [Aframe UI Widgets](https://github.com/caseyyee/aframe-ui-widgets) by [Casey Yee](https://twitter.com/whoyee?lang=en)
 - [Super-Hands](https://github.com/wmurphyrd/aframe-super-hands-component) by [Will Murphy](https://social.coop/@datatitian) 
- 
+
+
 
  
