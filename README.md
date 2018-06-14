@@ -13,7 +13,7 @@ ___
     npm install
 
 ### File Structure + Descriptions
-    ├── dist                   # Webpack Production build output 
+    ├── build                  # Webpack Production build output 
     ├── src                    # Source files
         ├── components         # Folder for Aframe components (JS)
         └── templates          # Folder for resuseable Aframe entities (HTML)
@@ -22,24 +22,19 @@ ___
     ├── package.json           # NPM 
     ├── webpack.config.js      # Webpack Config file for dev server/production builds
     
-    ├── ...
-    ├── src                     # Source Files
-    │   ├── box.js              # Module for box component
-    │   ├── index.html          # Front-End HTML + Aframe code
-    |   ├── index.js            # Webpack entry point
-    │   └── styles.css          # CSS
-    └── ...
 
 ## Hot-Reload Development Server 
 
-WebVR-Boilerplate uses Webpack-Dev-Server to host a hot-reloading http server of the _./dist_ directory. This is specified in _webpack.config.dev.js_:
+WebVR-Boilerplate uses Webpack-Dev-Server to host a hot-reloading http server. This is specified in _webpack.config.js_:
 
     devServer: {
-        contentBase: './dist',
-        hot: true
-     }
-     
-To spin up a development site, run the following code then point a WebVR friendly browser to http://localhost:8080/
+      overlay: {
+        errors: true,
+        warnings: false
+      }
+    }
+    
+To spin up a localhost site, run the following code then point a WebVR friendly browser to http://localhost:8080/
 
     npm run dev
 
