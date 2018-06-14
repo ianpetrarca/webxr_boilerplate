@@ -29,7 +29,7 @@ ___
     ├── package.json           # NPM 
     ├── webpack.config.js      # Webpack Config file for dev server/production builds
     
-## Development Stage
+## Development
 
 To spin up a localhost site, run the following command then point a WebVR friendly browser to http://localhost:8080/
 
