@@ -75,6 +75,7 @@ Aframe has an amazing community of developers, here are the people/projects that
 - [Kframe](https://github.com/ngokevin/kframe/) by [Kevin Ngo](http://ngokevin.com/)
 - [Aframe Teleport Component](https://github.com/fernandojsg/aframe-teleport-controls) by [Fernando Serrano](http://fernandojsg.com/blog/)
 - [Aframe UI Widgets](https://github.com/caseyyee/aframe-ui-widgets) by [Casey Yee](https://twitter.com/whoyee?lang=en)
+- [Super-Hands](https://github.com/wmurphyrd/aframe-super-hands-component) by [Will Murphy](https://social.coop/@datatitian) 
  
 
  
