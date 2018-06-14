@@ -67,7 +67,7 @@ Once Firebase is installed and initialized, run the following code to build and 
     
 ## Credits
 
-Aframe has an amazing community of developers, here are the people/projects that are being used in WebVR Boilerplate:
+Aframe has an amazing community of developers, here are the projects that are being used in WebVR Boilerplate:
 
 - [Aframe](https://github.com/aframevr/aframe)
 - [Aframe Environment](https://github.com/feiss/aframe-environment-component) by [Diego Goberna](http://feiss.be/) 
