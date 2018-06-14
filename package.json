@@ -35,7 +35,6 @@
     "aframe-event-set-component": "^4.1.1",
     "aframe-extras": "^4.1.0",
     "aframe-haptics-component": "^1.4.1",
-    "aframe-mountain-component": "^0.3.3",
     "aframe-physics-extras": "^0.1.3",
     "aframe-physics-system": "^3.1.1",
     "aframe-teleport-controls": "^0.3.1",
