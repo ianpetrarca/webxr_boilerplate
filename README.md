@@ -1,6 +1,6 @@
 # WebVR Boilerplate
 
-WebVR Boilerplate is a toolkit for WebVR creators to develop, build and deploy static WebVR experiences to the web. WebVR Boilerplate comes with a hot-reload webserver, the latest builds of [Aframe](https://github.com/aframevr/aframe/) and [Aframe Extras](https://github.com/donmccurdy/aframe-extras/) and a Webpack build pipeline that packages your content for Firebase Hosting.
+WebVR Boilerplate is a toolkit for WebVR creators to develop, build and deploy static WebVR experiences to the web. WebVR Boilerplate comes with a hot-reload webserver, the latest builds of [Aframe](https://github.com/aframevr/aframe/), it's best community components and a Webpack build pipeline that packages your content for Firebase Hosting.
 
 ___
 
@@ -15,6 +15,8 @@ ___
 ### File Structure + Descriptions
     ├── dist                   # Webpack Production build output 
     ├── src                    # Source material (unminifed)
+        ├── components         # Folder for Aframe components (JS)
+        ├── templates          # Folder for resuseable Aframe entities 
     ├── .firebaserc            # Connects your project to Firebase Hosting 
     ├── firebase.json          # Specifies which directory to upload to Firebase
     ├── package.json           # NPM 
