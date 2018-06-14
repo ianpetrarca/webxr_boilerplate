@@ -14,14 +14,13 @@ ___
 
 ### File Structure + Descriptions
     ├── dist                   # Webpack Production build output 
-    ├── src                    # Source material (unminifed)
+    ├── src                    # Source files
         ├── components         # Folder for Aframe components (JS)
-        ├── templates          # Folder for resuseable Aframe entities 
+        └── templates          # Folder for resuseable Aframe entities (HTML)
     ├── .firebaserc            # Connects your project to Firebase Hosting 
     ├── firebase.json          # Specifies which directory to upload to Firebase
     ├── package.json           # NPM 
-    ├── webpack.config.dev.js  # Creates hot-reload server (no optimization)
-    └── webpack.config.prod.js # Optimizes and builds code to the ./dist folder
+    ├── webpack.config.js      # Webpack Config file for dev server/production builds
     
     ├── ...
     ├── src                     # Source Files
