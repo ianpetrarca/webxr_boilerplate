@@ -1,6 +1,6 @@
 # WebVR Boilerplate
 
-WebVR Boilerplate is a toolkit for WebVR creators to develop, build and deploy static WebVR experiences to the web. WebVR Boilerplate comes with a hot-reload webserver, the latest builds of [Aframe](https://github.com/aframevr/aframe/), Aframe's best community components and a Webpack build pipeline that packages your content for Firebase Hosting. Some of the other features of WebVR Boilerplate are:
+WebVR Boilerplate is a toolkit for WebVR creators to develop, build and deploy static WebVR experiences to the web. WebVR Boilerplate comes with a hot-reload webserver, the latest builds of [Aframe](https://github.com/aframevr/aframe/), Aframe's best community components and a Webpack build pipeline that packages your content for Firebase Hosting. Some other features are:
 
 - Cross compatibility across HTC Vive, Oculus Rift/Go, Gear VR, iOS and Android devices. (Tested 6.14.18)
 - Spatial Audio, Shadows, Physics and Environment code examples
