@@ -17,7 +17,7 @@ ___
     cd webvr_boilerplate
     npm install
 
-### File Structure + Descriptions
+## File Structure + Descriptions
     ├── build                  # Webpack Production build output 
     ├── src                    # Source files
         ├── components         # Folder for Aframe components (JS)
