@@ -39,7 +39,7 @@ To view the dev server on an external device find out your local IP address (Typ
 
     192.168.1.165:8080
 
- **WebVR-Boilerplate was designed for Single-Page-Applications** and does not handle multiple html files without reconfiguring the _webpack.config.js HTMLWebpack plugin.
+ **WebVR-Boilerplate was designed for Single-Page-Applications** and does not handle multiple html files without reconfiguring the _webpack.config.js_ HTMLWebpack plugin.
  
  ## Building 
  
