@@ -1,24 +1,24 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const PATHS = {
-  app: path.join(__dirname, 'src'),
-  build: path.join(__dirname, 'build'),
+  app: path.join(__dirname, "src"),
+  build: path.join(__dirname, "build")
 };
 
 module.exports = {
   entry: {
-    app: PATHS.app,
+    app: PATHS.app
   },
   output: {
     path: PATHS.build,
-    filename: '[name].js',
+    filename: "[name].js"
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'A-Frame boilerplate',
+      title: "A-Frame boilerplate",
       template: `${PATHS.app}/index.html`,
-      inject: 'head'
+      inject: "head"
     })
   ],
   devServer: {
@@ -32,21 +32,25 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        enforce: 'pre',
+        enforce: "pre",
         loader: "eslint-loader",
         options: {
-          emitwarning: true,
+          emitwarning: true
         }
       },
       {
         test: /\.(html)$/,
         use: {
-          loader: 'html-loader',
+          loader: "html-loader",
           options: {
             interpolate: true
           }
         }
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ["file-loader"]
       }
-    ],
-  },
+    ]
+  }
 };

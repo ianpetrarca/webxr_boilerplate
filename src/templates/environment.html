@@ -1,16 +1,7 @@
-<a-entity id="enviro" position="0 -.001 0" environment="
-preset:default;
-playArea:1;
-groundYScale: 40;
-fog: .75;
-dressingAmount: 0;
-groundColor2: #2e7d32;
-groundColor: #1b5e20;
-groundTexture: walkernoise;
-grid:none;
-lightPosition: 0 .8 1;
-active: true;
-shadow: true;">
-</a-entity>
-      <!-- ground collider keeps objets from falling -->
-      <a-box static-body width=100 height=0.001 depth=100 visible="false"></a-box>
+<a-assets>
+  <img id="texture" src="wood.jpg">
+</a-assets>
+<a-light type="ambient" color="white"></a-light>
+<a-box src="#texture" width="10" height="0.01" depth="50" repeat="5 10"></a-box>
+<a-box color="#eee9e9" width="10" height="0.01" depth="50" position="5 5 0" rotation="0 0 90"></a-box>
+<a-box color="#eee9e9" width="10" height="0.01" depth="50" position="-5 5 0" rotation="0 0 90"></a-box>
