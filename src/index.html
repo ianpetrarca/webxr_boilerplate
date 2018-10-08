@@ -7,7 +7,7 @@
 <body>
   <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
 
-  <a-scene id="scene" vr-mode-ui="enabled: true" physics="gravity:-9.6">
+  <a-scene id="scene" vr-mode-ui="enabled: true" physics="gravity:-9.6" antialias="true">
     <a-assets>
       <a-mixin id="mycursor" position="0 0 -0.5" raycaster geometry="primitive: ring; radiusOuter: 0.008; radiusInner: 0.005; segmentsTheta: 32"
         material="color: white; shader: flat" static-body="shape: sphere; sphereRadius: 0.001" super-hands="colliderEvent: raycaster-intersection;colliderEventProperty: els;colliderEndEvent:raycaster-intersection-cleared; colliderEndEventProperty: clearedEls;colliderState:"></a-mixin>
