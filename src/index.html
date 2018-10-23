@@ -26,20 +26,13 @@
 
     </a-assets>
 
+    <a-entity listener></a-entity>
+    <a-entity control id="controller" gearvr-controls></a-entity>
     <!-- SCENE -->
     <!-- <a-entity position="9.75 4 -11" scale="30 30 30" text="value: WebVR Boilerplate;"></a-entity> -->
     <a-entity position="0 4 0" rotation="-90 0 0" id="night_light" visible="false" light="type:spot;intensity:0.3;penumbra:0.18"></a-entity>
     ${require('./templates/environment.html')}
 
-    <!-- CAMERA RIG FOR TELEPORT-CONTROLS AND SUPER-HANDS -->
-    <a-entity id="cameraRig">
-      <a-entity id="head" progressive-controls="gazeMixin: mycursor; touchMixin: mytouch; override: true; objects: .obj, .button; maxLevel: point;">
-        <a-entity teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;" shadow="cast:true" haptics="events: triggerdown; dur: 50; force: 0.5"
-          class="left-controller"></a-entity>
-        <a-entity teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;" shadow="cast:true" haptics="events: triggerdown; dur: 50; force: 0.5"
-          class="right-controller"></a-entity>
-      </a-entity>
-    </a-entity>
 
     <!-- CENTER CONSOLE -->
     <!-- <a-entity change-mountains material="color:white" rotation="0 90 60" position=".6 1.55 -3.15" class="button"
@@ -53,7 +46,7 @@
     <a-box material="color:#111111" shadow="cast:true;receive:false" rotation="-30 0 0" position="0 1.25 -3" scale="1.75 1 .01"></a-box> -->
     <!-- <a-plane color="#2196f3" height="1" width="5" rotation="0 0 0" position="0 5 -4.99" shadow="cast:true;receive:false"></a-plane> -->
     <!-- <a-box material="color:#ffffff" position="0 5 -5" scale="5 0.5 0.01"></a-box> -->
-    <a-entity appbar="color: #2196f3"></a-entity>
+    <a-entity id="appbar" appbar="color: #2196f3"></a-entity>
     <!-- <a-box material="color:#2196f3" position="0 5 -5" scale="5 0.5 0.01" shadow="cast:true;receive:false"></a-box>
     <a-plane color="#ffffff" height="5" width="5" rotation="0 0 0" position="0 2.5 -5" shadow="receive:true"></a-plane>
 

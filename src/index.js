@@ -14,3 +14,4 @@ require("./components/change-mountains.js");
 require("./components/change-fog.js");
 require("./components/phase-shift.js");
 require("./components/appbar.js");
+require("./components/control.js");
