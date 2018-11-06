@@ -21,10 +21,8 @@ AFRAME.registerComponent("control", {
     this.triggered = false;
     this.trackpad = false;
 
-    // this.currentPlanePos = document
-    //   .querySelector("#plane")
-    //   .getAttribute("position");
     this.triggerStartPos = null;
+    this.triggerDiff = null;
     this.trackpadStartPos = null;
 
     this.el.addEventListener(this.TRIGGER_EVENT, e => this.startTrigger(e));
@@ -36,19 +34,22 @@ AFRAME.registerComponent("control", {
 
   startTrigger: function(evt) {
     console.log(evt);
-    console.log("trigger");
     this.triggered = true;
     this.triggerStartPos = this.el.getAttribute("position");
-    console.log(this.triggerStartPos);
     this.triggerStartPos_x = this.triggerStartPos.x;
     this.triggerStartPos_y = this.triggerStartPos.y;
-    // AFRAME.log('Start Trigger Called at position: ' + this.triggerStartPos_y);
+    this.triggerStartPos_z = this.triggerStartPos.z;
   },
 
   endTrigger: function(evt) {
-    document.querySelector("#appbar").object3D.position.x += 1;
     console.log(evt);
-    // AFRAME.log('End Trigger Called...');
+    const camPos = document.querySelector("#cameraWrapper").object3D.position;
+    console.log(this.triggerDiff);
+    if (this.triggerDiff > 0) {
+      camPos.z += 1;
+    } else {
+      camPos.z -= 1;
+    }
     this.triggered = false;
   },
 
@@ -57,40 +58,18 @@ AFRAME.registerComponent("control", {
     console.log(evt);
     this.trackpad = true;
     this.trackpadStartPos = this.el.getAttribute("position");
-    this.trackpadStartPos_z = this.trackpadStartPos.z;
-    // AFRAME.log('Start Trigger Called at position: ' + this.trackpadStartPos_z);
   },
 
   endTrackpad: function(evt) {
     console.log(evt);
-    // AFRAME.log('End Trackpad Called...');
     this.trackpad = false;
   },
 
   tick: function() {
-    //     if (this.triggered || this.trackpad) {
-    //     //   var plane = document.querySelector("#plane");
-    //     //   var currentPosPlane = plane.getAttribute("position");
-    //       var controller = document.querySelector("#controller");
-    //       var currentPosController = controller.getAttribute("position");
-    //     }
-    //     if (this.triggered) {
-    //       // AFRAME.log('Holding trigger...');
-    //       var triggerPosDiff_x =
-    //         (currentPosController.x - this.triggerStartPos_x) * 1;
-    //       var triggerPosDiff_y =
-    //         (currentPosController.y - this.triggerStartPos_y) * 1;
-    //       plane.object3D.position.x += triggerPosDiff_x;
-    //       plane.object3D.position.y += triggerPosDiff_y;
-    //       this.triggerStartPos_x = currentPosController.x;
-    //       this.triggerStartPos_y = currentPosController.y;
-    //     }
-    //     if (this.trackpad) {
-    //       // AFRAME.log('Holding trackpad...');
-    //       var trackpadPosDiff_z =
-    //         (currentPosController.z - this.trackpadStartPos_z) * 1;
-    //       plane.object3D.position.z += trackpadPosDiff_z;
-    //       this.trackpadStartPos_z = currentPosController.z;
-    //     }
+    if (this.triggered) {
+      var controller = document.querySelector("#controller");
+      var currentPosController = controller.getAttribute("position");
+      this.triggerDiff = (currentPosController.z - this.triggerStartPos_z) * 1;
+    }
   }
 });
