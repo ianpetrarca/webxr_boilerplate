@@ -51,15 +51,16 @@ AFRAME.registerComponent("control", {
   tick: function() {
     const controller = document.querySelector("#controller");
     const cam = document.querySelector("#cameraWrapper").object3D;
-    const currentDirController = controller.object3D.getWorldDirection();
+    const camDir = new AFRAME.THREE.Vector3();
+    controller.object3D.getWorldDirection(camDir);
     if (this.triggered) {
       cam.position.sub(
-        currentDirController.multiply(new AFRAME.THREE.Vector3(0.1, 0.1, 0.1))
+        camDir.multiply(new AFRAME.THREE.Vector3(0.1, 0.1, 0.1))
       );
     }
     if (this.trackpad) {
       cam.position.add(
-        currentDirController.multiply(new AFRAME.THREE.Vector3(0.1, 0.1, 0.1))
+        camDir.multiply(new AFRAME.THREE.Vector3(0.1, 0.1, 0.1))
       );
     }
   }

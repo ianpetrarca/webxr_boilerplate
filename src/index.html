@@ -8,29 +8,12 @@
   <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
 
   <a-scene id="scene" vr-mode-ui="enabled: true" physics="gravity:-9.6" antialias="true">
-    <a-assets>
-      <a-mixin id="mycursor" position="0 0 -0.5" raycaster geometry="primitive: ring; radiusOuter: 0.008; radiusInner: 0.005; segmentsTheta: 32"
-        material="color: white; shader: flat" static-body="shape: sphere; sphereRadius: 0.001" super-hands="colliderEvent: raycaster-intersection;colliderEventProperty: els;colliderEndEvent:raycaster-intersection-cleared; colliderEndEventProperty: clearedEls;colliderState:"></a-mixin>
-      <a-mixin id="mytouch" physics-collider phase-shift collision-filter="collisionForces: false" static-body="shape: sphere; sphereRadius: 0.02"
-        super-hands="colliderEvent: collisions; colliderEventProperty: els; colliderEndEvent: collisions; colliderEndEventProperty: clearedEls;colliderState:"></a-mixin>
-      <a-mixin id="resize-obj" hoverable grabbable stretchable draggable dynamic-body="linearDamping:.98. angularDamping:.5"
-        shadow="receive:true;castShadow:true"></a-mixin>
-      <a-mixin id="bat-obj" hoverable grabbable draggable dynamic-body shadow="receive:true;castShadow:true"></a-mixin>
-      <a-mixin id="constraint-obj" hoverable grabbable draggable dynamic-body shadow="receive:true;castShadow:true"></a-mixin>
-      <a-mixin id="damping-obj" hoverable grabbable draggable dynamic-body="linearDamping:.99. angularDamping:.5"
-        shadow="receive:true;castShadow:true"></a-mixin>
-      <a-mixin id="hover-obj" geometry="primitive: box; width: 0.33; height: 0.33; depth: 0.33" hoverable grabbable
-        draggable event-set__hoveron="_event: hover-start; material.opacity: 0.5; transparent: true"
-        event-set__hoveroff="_event: hover-end; material.opacity: 1; transparent: false" dynamic-body shadow>
-      </a-mixin>
-    </a-assets>
-
     <a-entity id='cameraWrapper' position="0 0 0">
       <a-camera>
       </a-camera>
     </a-entity>
 
-    <a-entity control id="controller" gearvr-controls></a-entity>
+    <a-entity control id="controller" oculus-go-controls></a-entity>
     <!-- SCENE -->
     <a-entity position="0 4 0" rotation="-90 0 0" id="night_light" visible="false" light="type:spot;intensity:0.3;penumbra:0.18"></a-entity>
     ${require('./templates/environment.html')}

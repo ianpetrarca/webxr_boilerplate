@@ -31,7 +31,7 @@
     "webpack-dev-server": "^3.1.1"
   },
   "dependencies": {
-    "aframe": "^0.8.2",
+    "aframe": "github:aframevr/aframe#master",
     "aframe-event-set-component": "^4.1.1",
     "aframe-extras": "^4.1.0",
     "aframe-haptics-component": "^1.4.1",
