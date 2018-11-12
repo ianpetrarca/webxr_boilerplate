@@ -32,44 +32,35 @@ AFRAME.registerComponent("control", {
     this.el.addEventListener(this.UNTRACKPAD_EVENT, e => this.endTrackpad(e));
   },
 
-  startTrigger: function(evt) {
-    console.log(evt);
+  startTrigger: function() {
     this.triggered = true;
-    this.triggerStartPos = this.el.getAttribute("position");
-    this.triggerStartPos_x = this.triggerStartPos.x;
-    this.triggerStartPos_y = this.triggerStartPos.y;
-    this.triggerStartPos_z = this.triggerStartPos.z;
   },
 
-  endTrigger: function(evt) {
-    console.log(evt);
-    const camPos = document.querySelector("#cameraWrapper").object3D.position;
-    console.log(this.triggerDiff);
-    if (this.triggerDiff > 0) {
-      camPos.z += 1;
-    } else {
-      camPos.z -= 1;
-    }
+  endTrigger: function() {
     this.triggered = false;
   },
 
-  startTrackpad: function(evt) {
-    console.log("trackpad");
-    console.log(evt);
+  startTrackpad: function() {
     this.trackpad = true;
-    this.trackpadStartPos = this.el.getAttribute("position");
   },
 
-  endTrackpad: function(evt) {
-    console.log(evt);
+  endTrackpad: function() {
     this.trackpad = false;
   },
 
   tick: function() {
+    const controller = document.querySelector("#controller");
+    const cam = document.querySelector("#cameraWrapper").object3D;
+    const currentDirController = controller.object3D.getWorldDirection();
     if (this.triggered) {
-      var controller = document.querySelector("#controller");
-      var currentPosController = controller.getAttribute("position");
-      this.triggerDiff = (currentPosController.z - this.triggerStartPos_z) * 1;
+      cam.position.sub(
+        currentDirController.multiply(new AFRAME.THREE.Vector3(0.1, 0.1, 0.1))
+      );
+    }
+    if (this.trackpad) {
+      cam.position.add(
+        currentDirController.multiply(new AFRAME.THREE.Vector3(0.1, 0.1, 0.1))
+      );
     }
   }
 });
