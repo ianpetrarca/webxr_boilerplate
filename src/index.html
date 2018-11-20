@@ -28,9 +28,9 @@
     <a-entity id='cameraWrapper' position="0 1 0">
       <a-entity camera look-controls>
       </a-entity>
+        <a-entity control id="controller" oculus-go-controls></a-entity>
     </a-entity>
 
-    <a-entity control id="controller" oculus-go-controls></a-entity>
     <!-- SCENE -->
     <a-entity position="0 4 0" rotation="-90 0 0" id="night_light" visible="false" light="type:spot;intensity:0.3;penumbra:0.18"></a-entity>
     ${require('./templates/environment.html')}
