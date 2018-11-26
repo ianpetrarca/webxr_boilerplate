@@ -39,6 +39,7 @@
     "aframe-physics-system": "^3.1.1",
     "aframe-teleport-controls": "^0.3.1",
     "aframe-ui-widgets": "^1.0.2",
+    "copy-webpack-plugin": "^4.6.0",
     "file-loader": "^2.0.0",
     "npm": "^6.0.0",
     "super-hands": "^2.1.0"

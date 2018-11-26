@@ -7,6 +7,7 @@ require("super-hands");
 require("aframe-teleport-controls");
 require("aframe-ui-widgets");
 require("aframe-event-set-component");
+require("aframe-extras");
 
 //User Components
 require("./components/change-sky.js");

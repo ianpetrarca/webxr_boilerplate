@@ -7,6 +7,7 @@
 <body>
   <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
 
+
   <a-scene id="scene" vr-mode-ui="enabled: true" physics="gravity:-9.6" antialias="true">
     <a-assets>
       <a-mixin id="mycursor" position="0 0 -0.5" raycaster geometry="primitive: ring; radiusOuter: 0.008; radiusInner: 0.005; segmentsTheta: 32"
@@ -24,9 +25,10 @@
         event-set__hoveroff="_event: hover-end; material.opacity: 1; transparent: false" dynamic-body shadow>
       </a-mixin>
     </a-assets>
+    <a-entity gltf-model="url(/build/assets/scene.gltf)" animation-mixer scale="0.01 0.01 0.01" position="0 1 0"></a-entity>
 
-    <a-entity id='cameraWrapper' position="0 1 0">
-      <a-entity camera look-controls>
+    <a-entity id='cameraWrapper' position="0 1 3">
+      <a-entity camera look-controls wasd-controls>
       </a-entity>
         <a-entity control id="controller" oculus-go-controls></a-entity>
     </a-entity>

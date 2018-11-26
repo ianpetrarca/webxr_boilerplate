@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const PATHS = {
   app: path.join(__dirname, "src"),
@@ -19,7 +20,8 @@ module.exports = {
       title: "A-Frame boilerplate",
       template: `${PATHS.app}/index.html`,
       inject: "head"
-    })
+    }),
+    new CopyWebpackPlugin([{ from: "src/assets", to: "build/assets" }])
   ],
   devServer: {
     overlay: {
