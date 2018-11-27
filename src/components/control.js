@@ -1,8 +1,13 @@
 var AFRAME = require("aframe");
 const { THREE } = AFRAME;
 AFRAME.registerComponent("control", {
+  schema: {
+    lowerBound: { type: "vec3" },
+    upperBound: { type: "vec3" },
+    forwardVelocity: { type: "vec3", default: "0.1 0.1 0.1" },
+    backwardVelocity: { type: "vec3", default: "0.1 0.1 0.1" }
+  },
   init: function() {
-    console.log("init control");
     // document.querySelector("a-scene").addEventListener("enter-vr", function() {
     //   document.querySelector("a-camera").object3D.position.set(0, 0, 0);
     // });
@@ -54,15 +59,47 @@ AFRAME.registerComponent("control", {
     const cam = document.querySelector("#cameraWrapper").object3D;
     const camDir = new THREE.Vector3(0, 0, 0);
     controller.object3D.getWorldDirection(camDir);
+    const { forwardVelocity, backwardVelocity } = this.data;
     if (this.triggered) {
       cam.position.sub(
-        camDir.multiply(new AFRAME.THREE.Vector3(0.1, 0.1, 0.1))
+        camDir.multiply(
+          new AFRAME.THREE.Vector3(
+            forwardVelocity.x,
+            forwardVelocity.y,
+            forwardVelocity.z
+          )
+        )
       );
+      this.checkBound(cam);
     }
     if (this.trackpad) {
       cam.position.add(
-        camDir.multiply(new AFRAME.THREE.Vector3(0.1, 0.1, 0.1))
+        camDir.multiply(
+          new AFRAME.THREE.Vector3(
+            backwardVelocity.x,
+            backwardVelocity.y,
+            backwardVelocity.z
+          )
+        )
       );
+      this.checkBound(cam);
+    }
+  },
+  checkBound: function(cam) {
+    if (this.data.upperBound == undefined) {
+      return;
+    }
+    if (cam.position.x <= this.data.lowerBound.x) {
+      cam.position.x = this.data.lowerBound.x + 1;
+    }
+    if (cam.position.x >= this.data.upperBound.x) {
+      cam.position.x = this.data.upperBound.x - 1;
+    }
+    if (cam.position.z <= this.data.lowerBound.z) {
+      cam.position.z = this.data.lowerBound.z + 1;
+    }
+    if (cam.position.z >= this.data.upperBound.z) {
+      cam.position.z = this.data.upperBound.z - 1;
     }
   }
 });
