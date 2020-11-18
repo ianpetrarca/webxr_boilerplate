@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+     <title>WebXR Boilerplate | Ian Petrarca</title>
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+      <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+
+  </head>
+
+  <body> 
+    <h1 id="title"></h1>
+    <a-scene>
+
+      <a-assets>
+        <a-cubemap id="reflection">
+        <img src="https://aframe.io/aframe/examples/test/physical/milkyway/px.jpg">
+        <img src="https://aframe.io/aframe/examples/test/physical/milkyway/nx.jpg">
+        <img src="https://aframe.io/aframe/examples/test/physical/milkyway/py.jpg">
+        <img src="https://aframe.io/aframe/examples/test/physical/milkyway/ny.jpg">
+        <img src="https://aframe.io/aframe/examples/test/physical/milkyway/pz.jpg">
+        <img src="https://aframe.io/aframe/examples/test/physical/milkyway/nz.jpg">
+        </a-cubemap>
+        <img id="my-image" src="../src/assets/page1.jpg">
+      </a-assets>
+
+      <a-entity light="type: spot; shadowBias: 0.65; intensity: 0.4; color: blue" position="-2.61326 4.39972 1.27991"></a-entity>
+      <a-entity light="type: spot; shadowBias: 0.65; intensity: 0.4; color: #ca1616" position="2.35485 3.39905 2.70696"></a-entity>
+
+      <a-entity animation="property: position; to: -10 1.6 -10; dur: 100000; easing: linear; loop: true;dir:alternate" light="angle: 57.83; decay: 3.81; intensity: 0.43; penumbra: 1; type: directional; castShadow: false; shadowBias: 2.85; shadowRadius: 0.95" position="0 6.05845 0.13469"></a-entity>
+
+      <a-entity class="collidable" environment="flatShading:true;fog:.9;lightPosition: 0 0 0;lighting:none;ground:hills;groundYScale:55;groundTexture:none;groundColor:grey;playArea:.98"></a-entity>
+    
+      <a-entity animation="property: position; to: -20 15 -20; dur: 100000; easing: linear; loop: true;dir:alternate" material="envMap: #reflection; roughness: .5" geometry="primitive: tetrahedron"  position="16 15 -20" rotation="0 45 0" color="#4CC3D9"></a-entity>
+      <a-entity animation="property: position; to: 20 15 -20; dur: 100000; easing: linear; loop: true;dir:alternate" material="envMap: #reflection; roughness: .5" geometry="primitive: tetrahedron"  position="16 15 20" rotation="0 45 0" color="#4CC3D9"></a-entity>
+   
+   
+      <a-sphere dragndrop material="envMap: #reflection; roughness: .25" position="5 1.25 0" radius="1.25" color="#EF2D5E"></a-sphere shadow="castShadow">
+    
+        <a-curvedimage material="color:black;opacity:.5" height="8.0" radius="5.7" theta-length="72"
+        rotation="0 143.5 0" scale="1 1 1"></a-curvedimage>
+    
+        <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+        <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+        
+    </a-scene>
+  </body>
+
+
+</html>
