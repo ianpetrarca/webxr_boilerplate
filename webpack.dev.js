@@ -26,6 +26,7 @@ module.exports = {
   // https://webpack.js.org/concepts/loaders/
   module: {
     rules: [
+      
       {
         test: /\.js$/i,
         exclude: /node_modules/,

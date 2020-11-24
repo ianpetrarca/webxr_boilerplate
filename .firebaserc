@@ -2,7 +2,7 @@
   "projects": {
     "default": "volatility-watch",
     "staging": "vanishing-world-staging",
-    "prod": "xrlink",
+    "prod": "cms-ian",
     "test": "cms-ian"
   }
 }

@@ -1,5 +1,7 @@
 require('./page.css') // Page Specific Styles
-require('aframe');
-require('aframe-environment-component');
-
-import '../js/drag.js';
+require('three');
+  
+import AFRAME from 'aframe';
+require('../js/aframeEnvironment');
+import "aframe-physics-system/dist/aframe-physics-system"
+require('aframe-extras');
