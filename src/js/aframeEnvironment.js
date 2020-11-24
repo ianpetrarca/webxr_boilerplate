@@ -215,7 +215,7 @@
           this.ground.setAttribute('rotation', '-90 0 0');
           this.ground.classList.add('environmentGround');
           this.ground.classList.add('environment');
-        
+          this.ground.setAttribute("static-body","shape","none");
           this.groundCanvas = null;
           this.groundTexture = null;
           this.groundMaterial = null;

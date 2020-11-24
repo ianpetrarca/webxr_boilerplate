@@ -5,34 +5,26 @@
      <title>WebXR Boilerplate | Ian Petrarca</title>
       <link rel="preconnect" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
-
-  </head>
+    
+ </head>
 
   <body> 
-    <a-scene physics="gravity:-1">
-    
-      <a-entity environment></a-entity>
-      <!-- Camera -->
+    <a-scene physics="debug:true" environment="groundYScale:20;;groundTexture:none;">
 
-      <a-box dynamic-body >
+      <a-box static-body position="0 2 -2" scale="1 1 1"></a-box>
 
-        <a-camera look-controls></a-camera>
-
-
-      </a-box>
-
- 
-
+      <a-entity id="cameraRig">
+        <a-camera></a-camera>
+        <a-entity teleport-controls="cameraRig: #cameraRig; button: trigger; type: line"
+          
+          hand-controls="hand: left">
+        </a-entity>
+        <a-entity teleport-controls="cameraRig: #cameraRig; button: trigger"
       
-      <!-- Immovable box -->
-      <a-box static-body position="0 0.5 -5" width="3" height="1" depth="1"></a-box>
-    
-      <!-- Dynamic box -->
-      <a-box material="color:blue" dynamic-body position="5 0.5 0" width="1" height="1" depth="1"></a-box>
-    
+          hand-controls="hand: right">
+        </a-entity>
+      </a-entity>
     </a-scene>
-
-
    </body>
 
 
