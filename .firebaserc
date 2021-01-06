@@ -2,7 +2,7 @@
   "projects": {
     "default": "volatility-watch",
     "staging": "vanishing-world-staging",
-    "prod": "cms-ian",
+    "prod": "webvrboilerplate",
     "test": "cms-ian"
   }
 }
